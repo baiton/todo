@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>todo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="wrapper">
+      <!--The form is using post to push information into your req.body as an object-->
+      <form class="top" action="/" method="post">
+        <input type="text" name="itemAdd" value="" placeholder="Insert something to do!">
+      </form>
+      <h3>Things to Do:</h3>
+      <ul class="todo-catcher">
+        {{#todoArr}}
+        <li>
+           <form class="" action="/delete/{{id}}" method="post">
+             <button type="submit" name="delete" data-id="{{id}}">Complete</button>
+           </form>
+          <p>{{task}}</p>
+         </li>
+        {{/todoArr}}
+      </ul>
+      <div class="bottom">
+        <h1>Complete</h1>
+        <ul id="completed">
+          {{#completeArr}}
+          <li>
+            <form class="" action="/edit/{{id}}" method="post"> <button type="submit" name="delete" data-id="{{id}}">I Changed My Mind</button> </form>
+            <p>{{task}}</p>
+          </li>
+          {{/completeArr}}
+        </ul>
+      </div>
+    </section>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
