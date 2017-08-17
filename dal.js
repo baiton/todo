@@ -8,6 +8,12 @@ function addItem(item){
 
 }
 
+function getItem(itemId){
+  return todoArr.find(function(item){
+    return itemId == item.id
+  })
+}
+
 function removeItem(itemId){
   return todoArr.map(function(item){
     if(item.id == itemId){  // 2 parter this will assign false values to true
